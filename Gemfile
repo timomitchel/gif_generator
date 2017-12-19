@@ -40,6 +40,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
+  gem 'carrierwave', '~> 1.0'
 end
 
 group :development do
