@@ -1,2 +1,16 @@
-<%= link_to 'Sign Up', new_user_path %>
-<%= link_to 'Log In', login_path %>
+<h1>GifGenerator</h1>
+
+<nav>
+  <%= link_to 'Sign Up', new_user_path %>
+  <%= link_to 'Log In', login_path %>
+  <% if current_user && current_user.admin? %>
+  <% @categories.each do |category| %>
+    <%= @selected_category = category.collection_select(:name, Category.all) %>
+   <% end %>
+    <%= link_to "Generate Gif", new_admin_category_gif_path(@selected_category, @gif) %>
+  <% elsif current_user %>
+  <%= link_to "Favorites", user_gifs_path(current_user) %>
+  <% elsif current_user.nil? %>
+  <%= link_to 'Sign Up', new_user_path %>
+  <% end %>
+</nav>
