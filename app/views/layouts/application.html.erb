@@ -9,6 +9,19 @@
   </head>
 
   <body>
+        <% if current_user %>
+      <nav>
+        <%=link_to "Favorites", favorites_path %>
+        <% if current_user && current_user.admin? %>
+          <%=link_to "Gifs", admin_gifs_path %>
+          <%=link_to "Categories", admin_categories_path %>
+          <%=link_to "Generate GIF", new_admin_category_path %>
+        <% else %>
+          <%=link_to "Gifs", gifs_path %>
+        <% end %>
+        <%=link_to "Log Out", logout_path, method: :delete %>
+      </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>

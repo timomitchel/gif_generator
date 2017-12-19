@@ -10,15 +10,13 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def create
-    category = Category.new(category_params)
-    category.save
-    if category.save
-      flash[:success] = "Category #{category} created"
-      redirect_to admin_categories_path
-    else
-      flash[:error]
-      render :index
+    gif = Gif.select_random_gif(params[:category][:name])
+    @category = Category.find_by(name: params[:category][:name])
+    if @category.nil?
+      @category = Category.create(category_params)
     end
+    @category.gifs.create(url: gif['data']['image_url'])
+      redirect_to admin_categories_path
   end
 
     private

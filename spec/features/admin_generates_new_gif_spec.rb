@@ -6,20 +6,26 @@ describe "User visits gifs#new" do
     it "they can generate gifs" do
 
       admin = create(:user, role: 1)
-
+      Category.create(name: 'happyg')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit '/'
 
       click_on 'Generate GIF'
 
-      expect(current_path).to eq(new_admin_gif_path)
-      expect(page).to have_content("Generate Gifs")
+      expect(current_path).to eq(new_admin_category_path)
+      expect(page).to have_link("Generate GIF")
+      expect(page).to have_link("Favorites")
+      expect(page).to have_link("Categories")
+      expect(page).to have_link("Log Out")
+      
+      fill_in "category[name]", with: "happy"
+      click_on "Create Category"
 
-      fill_in "gif[search_term]", with: "cat"
-      click_on "Generate GIF"
-
-      expect(current_path).to eq(gifs_path)
+    expect(current_path).to eq admin_categories_path
+    expect(page).to have_content("happy")
+    expect(Category.count).to eq 1
+    expect(Gif.count).to eq 1
     end
   end
   context "as user" do
@@ -34,7 +40,7 @@ describe "User visits gifs#new" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-      visit new_admin_category_gif_path
+      visit new_admin_category_path
 
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
