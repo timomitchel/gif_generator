@@ -1,8 +1,19 @@
 <%=form_for [:admin, @category] do |f|  %>
-
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.submit "Create Category" %>
-
+  <% if @category.errors.any? %>
+    <seciton class="errors"> 
+      <h2><%= pluralize(@category.errors.count, "error") %> prevented saving this category:</h2>
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </seciton>
+    <% end %>
+    <p class="text_field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p class="submit">
+      <%= f.submit "Create Category" %>
+    </p>
 <% end %>

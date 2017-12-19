@@ -2,7 +2,9 @@ class Gif < ApplicationRecord
   require 'net/http'
   require 'json'  
   mount_uploaders :avatars, AvatarUploader
-  validates_presence_of :url, uniqueness: true
+  validates_presence_of :url
+  validates_uniqueness_of :url
+  validates_presence_of :category_id
 
   belongs_to :category
 
