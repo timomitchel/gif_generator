@@ -18,7 +18,6 @@ describe "user signs up for account" do
           click_on "Create User"
 
           expect(page).to have_content("Welcome, funbucket13")
-
         end
       end 
     end

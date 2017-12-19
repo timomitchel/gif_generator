@@ -13,7 +13,4 @@ describe Category, type: :model do
   describe 'relationships' do
     it {should have_many(:gifs)}
   end
-  describe 'uniqueness' do 
-    it {should validate_uniqueness_of(:name)}
-  end
 end

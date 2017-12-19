@@ -9,7 +9,6 @@ describe Gif do
       it 'is valid with a new url' do
 
         gif = @category.gifs.create!(url: "www.google.com")
-        byebug
         expect(gif).to respond_to(:category)
       end
     end
