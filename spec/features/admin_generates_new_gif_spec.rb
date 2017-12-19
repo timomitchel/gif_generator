@@ -3,10 +3,10 @@ require 'rails_helper'
 
 describe "User visits gifs#new" do
   context "as admin" do
-    it "they can generate gifs" do
+    it "they can generate gifs with category present" do
 
       admin = create(:user, role: 1)
-      Category.create(name: 'happyg')
+      Category.create(name: 'happy')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit '/'
@@ -24,6 +24,29 @@ describe "User visits gifs#new" do
 
     expect(current_path).to eq admin_categories_path
     expect(page).to have_content("happy")
+    expect(Category.count).to eq 1
+    expect(Gif.count).to eq 1
+    end
+        it "they can generate gifs without category present" do
+
+      admin = create(:user, role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit '/'
+
+      click_on 'Generate GIF'
+
+      expect(current_path).to eq(new_admin_category_path)
+      expect(page).to have_link("Generate GIF")
+      expect(page).to have_link("Favorites")
+      expect(page).to have_link("Categories")
+      expect(page).to have_link("Log Out")
+      
+      fill_in "category[name]", with: "sad"
+      click_on "Create Category"
+
+    expect(current_path).to eq admin_categories_path
+    expect(page).to have_content("sad")
     expect(Category.count).to eq 1
     expect(Gif.count).to eq 1
     end
