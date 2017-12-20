@@ -42,6 +42,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'carrierwave', '~> 1.0'
   gem 'shoulda-matchers', '~> 3.1'
+
 end
 
 group :development do
@@ -52,3 +53,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+ruby '2.4.1'
