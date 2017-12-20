@@ -19,8 +19,9 @@ describe "registered user logs in" do
           click_on "Log In"
           expect(admin.admin?).to be_truthy
           expect(current_path).to eq(admin_user_path(admin))
+          expect(page).to have_content("Welcome, #{admin.username}")
         end
-        skip
+
         it "logs in a user" do
           @user = create(:user, role: 0)
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
