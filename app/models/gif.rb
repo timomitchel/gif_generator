@@ -9,7 +9,7 @@ class Gif < ApplicationRecord
   has_many :users, through: :favorites
 
   def self.select_random_gif(category_name)
-    url = "http://api.giphy.com/v1/gifs/random?q=#{category_name}&api_key=aWelUmFa12kmAdMsQPJrznBYgKXIosuM&limit=1"
+    url = "http://api.giphy.com/v1/gifs/random?api_key=aWelUmFa12kmAdMsQPJrznBYgKXIosuM&tag=#{category_name}&limit=1"
     resp = Net::HTTP.get_response(URI.parse(url))
     buffer = resp.body
     JSON.parse(buffer)
