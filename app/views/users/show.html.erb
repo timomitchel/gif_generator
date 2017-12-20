@@ -1,5 +1,17 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
-<% if @user.favorites %>
-  <% @user.favorites.each do |favorite| %>
-  
+
+ <section class="gifs">
+  <% if @user.favorites %>
+  <h2>Your Favorite GIFs</h2>
+  <div class="images">
+   <% @user.favorites.each do |favorite| %>
+      <img src="<%= favorite.gif.url %>"/>
+    <% end %>
+  <% end %>
+  </div>
+</section>
+
+ <section>
+  Check out a few <%= link_to 'GIFs', gifs_path %>! 
+</section>

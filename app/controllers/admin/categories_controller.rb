@@ -11,6 +11,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     gif = Gif.select_random_gif(params[:category][:name])
+    byebug
     @category = Category.find_by(name: params[:category][:name])
     if @category.nil?
       @category = Category.create(category_params)
