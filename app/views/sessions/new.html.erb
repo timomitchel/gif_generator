@@ -1,9 +1,15 @@
-<%= form_tag do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
+<%=  flash.now[:error] %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
 
-  <%= submit_tag "Log In" %>
+<h3>Log in to your account</h3>
+
+<%= form_for :sessions, url: '/login' do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Log In" %>
 <% end %>
