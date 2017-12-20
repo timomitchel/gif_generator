@@ -18,22 +18,24 @@ describe "registered user logs in" do
 
           click_on "Log In"
           expect(admin.admin?).to be_truthy
+          expect(current_path).to eq(admin_user_path(admin))
         end
+        skip
         it "logs in a user" do
-          user = create(:user)
-
-          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+          @user = create(:user, role: 0)
+          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
           visit "/"
 
           click_on "Log In"
 
           expect(current_path).to eq(login_path)
-          fill_in 'sessions[username]', with: user.username
-          fill_in 'sessions[password]', with: user.password
+          fill_in 'sessions[username]', with: @user.username
+          fill_in 'sessions[password]', with: @user.password
 
           click_on "Log In"
-          expect(user.admin?).to be_falsy
-          expect(page).to have_content("Welcome, #{user.username}")
+          expect(current_path).to eq(user_path(@user))
+          expect(@user.admin?).to be_falsy
+          expect(page).to have_content("Welcome, #{@user.username}")
         end
       end
     end
