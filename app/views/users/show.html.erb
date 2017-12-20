@@ -6,12 +6,9 @@
   <h2>Your Favorite GIFs</h2>
   <div class="images">
    <% @user.favorites.each do |favorite| %>
-      <img src="<%= favorite.gif.url %>"/>
+      <img src="<%=favorite.find_gif_by_id%>"/>
     <% end %>
   <% end %>
   </div>
 </section>
 
- <section>
-  Check out a few <%= link_to 'GIFs', gifs_path %>! 
-</section>

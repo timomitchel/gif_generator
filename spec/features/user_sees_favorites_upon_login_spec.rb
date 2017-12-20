@@ -14,7 +14,7 @@ describe 'user sees all of their favorite gifs after loggin ing' do
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
           visit user_path(user)
-          
+          save_and_open_page
           expect(page).to have_content("Your Favorite GIFs")
           expect(page).to have_css("img[src*='http://giphy.com/gifs/academy-award-jLr80rEZwTYRi']")
         end
