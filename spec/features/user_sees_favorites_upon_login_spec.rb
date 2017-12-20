@@ -4,7 +4,7 @@ describe 'user sees all of their favorite gifs after loggin ing' do
   context 'user visits root' do 
     context 'user clicks on log_in' do 
       context 'user enters valid credentials' do 
-        it 'is brough to a show page with a display of their favorite gifs' do 
+        it 'is brought to a show page with a display of their favorite gifs' do 
 
           user = create(:user)
           category = create(:category)
@@ -14,7 +14,6 @@ describe 'user sees all of their favorite gifs after loggin ing' do
           allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
           visit user_path(user)
-          save_and_open_page
           expect(page).to have_content("Your Favorite GIFs")
           expect(page).to have_css("img[src*='https://media3.giphy.com/media/lYTlomlpfYiTS/giphy.gif']")
         end
