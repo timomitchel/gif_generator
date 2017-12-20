@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :new, :create]
     end
 
-    resources :users, only: [:show, :new, :create]
+    resources :users, only: [:show, :new, :create] do 
+      resources :favorites, only: [:create, :destroy, :index]
+    end
     resources :gifs, only: [:index]
-    resources :favorites, only: [:create, :destroy, :index]
+    
 end

@@ -11,7 +11,7 @@
   <body>
         <% if current_user %>
       <nav>
-        <%=link_to "Favorites", favorites_path %>
+        <%=link_to "Favorites", user_favorites_path(current_user.id) %>
         <% if current_user && current_user.admin? %>
           <%=link_to "Gifs", admin_gifs_path %>
           <%=link_to "Categories", admin_categories_path %>
