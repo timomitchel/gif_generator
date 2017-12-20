@@ -2,7 +2,7 @@
 
 <% @categories.each do |category| %>
 <%= category.name %>
-<%= link_to "Delete", category_path(category), method: "delete" %>
+<%= link_to "Delete", admin_category_path(category), method: "delete" %>
 <%end %>
 
 <%= render partial: 'form' %>
