@@ -1,9 +1,18 @@
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<h1>Create a Username and Password </h1>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  
-  <%= f.submit %>
+<form class= 'sign_up'>
+  <%= form_for @user do |f| %>
+
+    <section class='field'>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </section>
+    
+    <section class='submit'>
+      <%= f.submit %>
+    </section>
+</form>
 <% end %>

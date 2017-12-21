@@ -1,3 +1,7 @@
-<% @gifs.each do |gif| %>
-<img src="<%= gif.url %>"/>
-<% end %>
+<h1>Brighten up your day with these GIFs</h1>
+
+<section class='gifs'>
+  <% @gifs.each do |gif| %>
+  <img src="<%= gif.url %>"/>
+  <% end %>
+</section>
