@@ -1,3 +1,7 @@
-<% @favorites.each do |favorite|  %>
-<img src="<%= favorite.find_gif_by_id%>">
+<h1>Your Favorites</h1>
+
+<section class='favorites'>
+  <% @favorites.each do |favorite|  %>
+  <img src="<%= favorite.find_gif_by_id%>">
+</section>
 <%end %>

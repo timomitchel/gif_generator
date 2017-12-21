@@ -1,8 +1,14 @@
 <h1>All Categories</h1>
 
 <% @categories.each do |category| %>
-<%= category.name %>
-<%= link_to "Delete", admin_category_path(category), method: "delete" %>
+
+<section class='categories'>
+  <%= category.name %>
+  <%= link_to "Delete", admin_category_path(category), method: "delete" %>
+</section>
+
 <%end %>
 
-<%= render partial: 'form' %>
+<form class= 'form'>
+  <%= render partial: 'form' %>
+</form>

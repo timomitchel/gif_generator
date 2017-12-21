@@ -1,15 +1,19 @@
-<%=  flash.now[:error] %>
-
+<div>
+  <%=  flash.now[:error] %>
+</div>
 
 <h3>Log in to your account</h3>
-
-<%= form_for :sessions, url: '/login' do |f| %>
-
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Log In" %>
+  <form>
+    <%= form_for :sessions, url: '/login' do |f| %>
+    <section class='fields'>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+     </section>
+    <div class ='submit'>
+      <%= f.submit "Log In" %>
+    </div>
+  </form>
 <% end %>

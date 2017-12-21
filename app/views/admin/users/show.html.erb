@@ -3,11 +3,11 @@
 
  <section class="gifs">
   <% if @user.favorites %>
-  <h2>Your Favorite GIFs</h2>
-  <div class="images">
-   <% @user.favorites.each do |favorite| %>
-      <img src="<%=favorite.find_gif_by_id%>"/>
-    <% end %>
+    <h2>Your Favorite GIFs</h2>
+    <div class="images">
+      <% @user.favorites.each do |favorite| %>
+        <img src="<%=favorite.find_gif_by_id%>"/>
+      <% end %>
   <% end %>
-  </div>
+    </div>
 </section>
