@@ -6,9 +6,7 @@
 </nav>
 
 <section>
-  <% @gifs.each do |gif| %>
-    <% unless gif[1][1].nil? %>
-      <img src="<%=  gif[1][1]["images"]["original_still"]["url"] %>"/>
+  <% @gifs["data"].each do |gif| %>
+      <img src="<%=  gif["images"]["original_still"]["url"] %>"/>
     <% end %>
-  <% end %>
 </section>
