@@ -7,6 +7,6 @@
 
 <section>
   <% @gifs["data"].each do |gif| %>
-      <img src="<%=  gif["images"]["original_still"]["url"] %>"/>
+      <img src="<%=  gif["images"]["downsized_medium"]["url"] %>"/>
     <% end %>
 </section>
