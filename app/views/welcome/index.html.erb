@@ -6,5 +6,9 @@
 </nav>
 
 <section>
-  Put gifs here
+  <% @gifs.each do |gif| %>
+    <% unless gif[1][1].nil? %>
+      <img src="<%=  gif[1][1]["images"]["original_still"]["url"] %>"/>
+    <% end %>
+  <% end %>
 </section>

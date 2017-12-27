@@ -14,4 +14,11 @@ class Gif < ApplicationRecord
     buffer = resp.body
     JSON.parse(buffer)
   end
+
+  def self.welcome_gifs
+    url = "https://api.giphy.com/v1/gifs/search?api_key=aWelUmFa12kmAdMsQPJrznBYgKXIosuM&q=welcome&limit=25&offset=0&rating=G&lang=en"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    buffer = resp.body
+    JSON.parse(buffer)
+  end
 end
