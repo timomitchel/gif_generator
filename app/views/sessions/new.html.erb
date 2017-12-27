@@ -3,7 +3,7 @@
 </div>
 
 <h3>Log in to your account</h3>
-  <form>
+  <%= form_tag do %>
     <%= form_for :sessions, url: '/login' do |f| %>
     <section class='fields'>
       <%= f.label :username %>
@@ -15,5 +15,5 @@
     <div class ='submit'>
       <%= f.submit "Log In" %>
     </div>
-  </form>
+  <% end %>
 <% end %>
