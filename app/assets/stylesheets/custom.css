@@ -1,0 +1,29 @@
+body {
+  background: #dbedf0;
+  color: #222;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  flex-flow: row wrap;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  margin: 20px;
+  text-align: center;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+nav {
+  background: rgb(247, 244, 244);
+  padding: 10px;
+  position: relative;
+  margin: -8px;
+  margin-bottom: 0;
+}
