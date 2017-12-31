@@ -2,6 +2,6 @@ class WelcomeController < ApplicationController
 
   def index
     @categories = Category.all
-    @gif = Gif.new
+    @gifs = Gif.welcome_gifs
   end
 end
