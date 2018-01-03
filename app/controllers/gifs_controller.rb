@@ -1,7 +1,7 @@
 class GifsController < ApplicationController
 
   def index
-    @gifs = Gif.all
+    @gifs = Gif.random_gif
   end
 
 end

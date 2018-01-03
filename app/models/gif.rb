@@ -21,4 +21,11 @@ class Gif < ApplicationRecord
     buffer = resp.body
     JSON.parse(buffer)
   end
+
+  def self.random_gifs
+    url = "http://api.giphy.com/v1/gifs/random?api_key=aWelUmFa12kmAdMsQPJrznBYgKXIosuMlimit=30"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    buffer = resp.body
+    JSON.parse(buffer)
+  end
 end

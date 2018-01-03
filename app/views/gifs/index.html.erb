@@ -1,7 +1,8 @@
 <h1>Brighten up your day with these GIFs</h1>
 
 <section class='gifs'>
-  <% @gifs.each do |gif| %>
-  <img src="<%= gif.url %>"/>
-  <% end %>
+  <% @gifs["data"].each do |gif| %>
+      <img src="<%=  gif["images"]["downsized_medium"]["url"] %>"/>
+      <%= button_to "Add to Favorites", user_favorites_path(gif_id: gif.id)  %>
+    <% end %>
 </section>
