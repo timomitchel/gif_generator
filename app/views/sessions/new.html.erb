@@ -3,9 +3,9 @@
 </div>
 
 <h3>Log in to your account</h3>
-  <%= form_tag do %>
-    <%= form_for :sessions, url: '/login' do |f| %>
+
     <section class='fields'>
+    <%= form_for :sessions, url: '/login' do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username %>
     
@@ -15,5 +15,4 @@
     <div class ='submit'>
       <%= f.submit "Log In" %>
     </div>
-  <% end %>
 <% end %>
