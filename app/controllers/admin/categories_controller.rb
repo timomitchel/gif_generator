@@ -12,10 +12,10 @@ class Admin::CategoriesController < Admin::BaseController
   def create
     gif = Gif.select_random_gif(params[:category][:name])
     @category = Category.find_by(name: params[:category][:name])
-    if @category.nil?
+    unless @category
       @category = Category.create(category_params)
     end
-    @category.gifs.create(url: gif['data']['image_url'])
+      Gif.create(category_id: @category.id, url: gif['data']['image_url'])
       redirect_to admin_categories_path
   end
 
