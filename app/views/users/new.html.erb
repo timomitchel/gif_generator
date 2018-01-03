@@ -1,18 +1,15 @@
 <h1>Create a Username and Password </h1>
 
-<form class= 'sign_up'>
   <%= form_for @user do |f| %>
 
-    <section class='field'>
+
       <%= f.label :username %>
       <%= f.text_field :username %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
-    </section>
-    
-    <section class='submit'>
+      <%= f.password_field :password %>    
+
       <%= f.submit %>
-    </section>
-</form>
+
+
 <% end %>

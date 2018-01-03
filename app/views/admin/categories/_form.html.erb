@@ -1,13 +1,13 @@
 <%=form_for [:admin, @category] do |f|  %>
   <% if @category.errors.any? %>
-    <seciton class="errors"> 
+    <section class="errors"> 
       <h2><%= pluralize(@category.errors.count, "error") %> prevented saving this category:</h2>
       <ul>
       <% @category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
-    </seciton>
+    </section>
     <% end %>
     <p class="text_field">
       <%= f.label :name %>
