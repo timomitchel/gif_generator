@@ -2,16 +2,16 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
 
- <section class="gifs">
   <% if @user.favorites.count != 0 %>
   <h2>Your Favorite GIFs</h2>
+ <section class="gifs">
   <div class="images">
    <% @user.favorites.each do |favorite| %>
       <img src="<%=favorite.find_gif_by_id%>"/>
     <% end %>
     <% else %>
     <h3>You have no favorites. Click Gifs link to look at Gifs!<h3>
-  <% end %>
   </div>
 </section>
+  <% end %>
 

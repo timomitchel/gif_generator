@@ -2,7 +2,12 @@ body {
   background: #dbedf0;
   color: #222;
 }
-
+.gifs{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+}
 img {
   width: 200px;
   height: 200px;
