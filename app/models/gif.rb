@@ -4,6 +4,8 @@ require 'json'
 
 class Gif < ApplicationRecord
   validates_presence_of :url, :category_id
+  validates_uniqueness_of :url
+  
   belongs_to :category
   has_many :favorites
   has_many :users, through: :favorites
@@ -23,7 +25,7 @@ class Gif < ApplicationRecord
   end
 
   def self.random_gifs
-    url = "http://api.giphy.com/v1/gifs/random?api_key=aWelUmFa12kmAdMsQPJrznBYgKXIosuMlimit=30"
+    url = "https://api.giphy.com/v1/gifs/trending?api_key=aWelUmFa12kmAdMsQPJrznBYgKXIosuM&limit=25&rating=G"
     resp = Net::HTTP.get_response(URI.parse(url))
     buffer = resp.body
     JSON.parse(buffer)
